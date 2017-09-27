@@ -10,17 +10,22 @@
         <div class="news-content" v-html="newsData.content">
 
         </div>
+
+        <!-- {{newsData.id}} -->
+        <comments :article-id="this.$route.params.id"></comments>
     </div>
 </template>
 
 <script>
 import config from "../../config"
 
+import comments from "../subcomps/comments.vue"
+
 
 export default {
     data() {
         return {
-            newsData: {}
+            newsData: {id: 1},
         }
     },
     created() {
@@ -31,8 +36,10 @@ export default {
                 this.newsData = data.message[0]
             }
         })
+    },
+    components: {
+        comments
     }
-
 }
 </script>
 
@@ -49,6 +56,10 @@ export default {
 
 .news-content{
     padding:10px;
+}
+
+.news-content img{
+    width: 100%
 }
 </style>
 
