@@ -17,6 +17,9 @@ import SearchContainer from "../components/containers/SearchContainer.vue"
 import NewsList from "../components/news/list.vue"
 import NewsDetail from "../components/news/detail.vue"
 
+import PicList from "../components/picture/list.vue"
+import PicDetail from "../components/picture/detail.vue"
+
 
 export default new VueRouter({
     routes: [
@@ -26,6 +29,9 @@ export default new VueRouter({
         {path: "/search", component: SearchContainer},
         {path: "/news/list", component: NewsList},
         {path: "/news/detail/:id", component: NewsDetail},
-
+        
+        {path: "/pic/list", redirect: "/pic/list/0"},
+        {path: "/pic/list/:id", component: PicList},
+        {path: "/pic/detail/:id", component: PicDetail}
     ]
 })
