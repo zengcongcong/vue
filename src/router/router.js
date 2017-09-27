@@ -8,20 +8,24 @@ import VueRouter from "vue-router"
 Vue.use(VueRouter);
 
 
-//6. 导入Account组件
-import Account from "../components/account/Account.vue"
+// 导入相应的组件文件
+import HomeContainer from "../components/containers/HomeContainer.vue"
+import MemberContainer from "../components/containers/MemberContainer.vue"
+import CartContainer from "../components/containers/CartContainer.vue"
+import SearchContainer from "../components/containers/SearchContainer.vue"
 
-import Login from "../components/account/Login.vue"
+import NewsList from "../components/news/list.vue"
+import NewsDetail from "../components/news/detail.vue"
 
-import Register from "../components/account/Register.vue"
 
 export default new VueRouter({
     routes: [
-        {path: "/account", component: Account,
-            children: [
-                {path: "login", component: Login},
-                {path: "register", component: Register}
-            ]
-        }
+        {path: "/", component: HomeContainer},
+        {path: "/member", component: MemberContainer},
+        {path: "/cart", component: CartContainer},
+        {path: "/search", component: SearchContainer},
+        {path: "/news/list", component: NewsList},
+        {path: "/news/detail/:id", component: NewsDetail},
+
     ]
 })
